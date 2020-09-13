@@ -2,6 +2,10 @@
 
 We'll be deploying our model using [Amazon's SageMaker](https://aws.amazon.com/sagemaker/).
 
+## Problem Introduction: 
+
+We'll be predicting the median value of home in Boston Masachusetts, using a provided dataset. Features:We're using Avg. number of rooms, and medium value (in USD). Ultimate goal is to also deploy this out to a smartphone application that we've developed.
+
 ## 1. What's the *machine learning workflow*?
 
 ## 2. How does ***deployment\*** fit into the *machine learning workflow*?
