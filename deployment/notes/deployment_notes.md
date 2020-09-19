@@ -94,4 +94,22 @@ Due to their generic structure, Docker containers can contain all types of softw
 
 ### Container Structure
 
-The image 
+* The underlying *computational infrastructure* can be a cloud provider's data center, an on-premise data center, or even someone's local computer.
+* Second, an *operating system* running on top of this *computation infrastructure*, in either the data center, or locally.
+* Third, the *container engine*, this could be *Docker* software.
+  * The container engine software enables one to create, save, use, and delete containers.
+* Fourth, there is the *container* itself, which has two core components.
+  * The *libraries and binaries* required to launch, run, and maintain the application layer.
+  * Lastly, the *application* layer itself.
+
+### Architecture Benefits
+
+1. Isolates the application, which increases security.
+2. Requires *only* the software needed to run the application, which uses computational resources *more efficiently* and allows for faster application deployment.
+3. Makes application creation, replication, deletion, and maintenance easier, and the same across all applications that are deployed.
+4. Provides a more simple and secure way to replicate, save, and share containers.
+
+### Container Construction
+
+1. Done via a **container script file**, which can easily be shared with others and provides a simple method to *replicate* a **particular container**. In docker, these scripts are referred to as *dockerfiles*.
+2. The **container engine** then calls this script, generating a container. These scripts are stored in repositories, which provide a simple means to share and replicate themselves. For Docker, the Docker Hub is the official repository for storing and sharing *dockerfiles*.
