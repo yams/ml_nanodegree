@@ -72,3 +72,60 @@ exit
 ```
 
 Once the directory has been copied, it should show up automatically in the main Jupyter instance.
+
+# General Notebook Outline with Boston Housing Example
+
+Typically, when using a notebook instance with SageMaker, we will proceed through the following steps.
+
+1. Download or otherwise retrieve the data.
+2. Process / Prepare the data.
+3. Upload the processed data to S3.
+4. Train a chosen model.
+5. Test the trained model (typically using a batch transform job).
+6. Deploy the trained model.
+7. Use the deployed model.
+
+### Setup, Download Data
+
+The initial dataset we're going to look at is `Housing Data for Boston, MA`, and we're going to try to predict a house value using a variety of datasets.
+
+```bash
+https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html
+```
+
+This has been preloaded onto the Jupyter notebook, from the `github.com/udacity/sagemaker-deployment.git` repository.
+
+```python
+# Make sure we use SageMaker 1.x for the lesson
+!pip install sagemaker==1.72.0
+
+# Normal Python Imports
+
+%matplotlib inline
+
+import os
+
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from sklearn.datasets import load_boston
+import sklearn.model_selection
+
+# SageMaker Imports (New!)
+
+import sagemaker
+from sagemaker import get_execution_role
+from sagemaker.amazon.amazon_estimator import get_image_uri
+from sagemaker.predictor import csv_serializer
+
+# Initialize a session for us to interact with (New!)
+session = sagemaker.Session()
+
+# Obtain IAM role from AWS Console (New!)
+role = get_execution_role()
+
+# Download the data (New!)
+boston = load_boston
+```
