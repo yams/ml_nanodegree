@@ -215,6 +215,9 @@ xgb.fit({'train': s3_input_train, 'validation': s3_input_validation})
 # Test by initaiting a "transformer", which we will also use to confirm overfitting
 xgb_transformer = xgb.transformer(instance_count = 1, instance_type = 'ml.m4.xlarge')
 
+# Initiate the transform job.
+xgb_transformer.transform(test_location, content_type='text/csv', split_type='Line')
+
 # Since it's background initiatied, let's just pause while AWS finishes.
 xgb_transformer.wait()
 
