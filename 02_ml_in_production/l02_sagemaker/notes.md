@@ -15,7 +15,7 @@ SageMaker instances are a bit different than regular instances.
 These terms are not SageMaker specific, but their meaning is slightly adjusted in the SageMaker context.
 
 - **Session** - the SageMaker [session]((https://sagemaker.readthedocs.io/en/latest/session.html)) is a special *object* that pre-instantiates necessary things for our usage, such as S3 and some machine learning models. The `upload_data` , `train`, `tune`, and `create_model` functions are all integral to our usage of Sagemaker.
-- **Role** - Sometimes called the *execution role*, this is the IAM role that you created when you created your notebook  instance. The role basically defines how data that your notebook  uses/creates will be stored. You can even try printing out the role with `print(role)` to see the details of this creation.
+- **Role** - Sometimes called the *execution role*, this is the IAM role that you created when you created your notebook  instance. The role basically defines how data that your notebook uses/creates will be stored. You can even try printing out the role with `print(role)` to see the details of this creation.
 
 ## A Note on S3 Buckets
 
@@ -182,7 +182,7 @@ We'll use the SageMaker API for this as opposed to a python built-in API. Code i
 
 we need to provide the location of a container which contains the training code. Since we are using a built in algorithm this container is provided by Amazon. However, the full name of the container is a bit lengthy and depends on the region that we are operating in. Fortunately, SageMaker  provides a useful utility method called `get_image_uri` that constructs the image name for us.
 
-To use the `get_image_uri` method we need to provide it  with our current region, which can be obtained from the session object,  and the name of the algorithm we wish to use. In this notebook we will  be using XGBoost however you could try another algorithm if you wish.  The list of built in algorithms can be found in the list of [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html).
+To use the `get_image_uri` method we need to provide it  with our current region, which can be obtained from the session object,  and the name of the algorithm we wish to use. In this notebook we will  be using XGBoost however you could try another algorithm if you wish.  The list of built in algorithms can be found in the list of [Common Parameters](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html). 
 
 ```python
 # Construct the image name for the training container, which will contain the estimator
